@@ -1,4 +1,10 @@
 # uuid
+
+This is a fork of https://github.com/google/uuid. This fork returns a
+16-byte slice from its Value() method. Do not use this code unless you
+are trying to store UUIDs in BINARY(16) columns in MariaDB or MySQL
+using SQLC.
+
 The uuid package generates and inspects UUIDs based on
 [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122)
 and DCE 1.1: Authentication and Security Services. 
