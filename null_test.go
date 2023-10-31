@@ -7,6 +7,7 @@ package uuid
 import (
 	"bytes"
 	"encoding/json"
+	"reflect"
 	"testing"
 )
 
@@ -64,7 +65,7 @@ func TestNullUUIDValue(t *testing.T) {
 	if nuErr != nil {
 		t.Errorf("expected nil err, got err %s", nuErr)
 	}
-	if uValue != nuValue {
+	if !reflect.DeepEqual(uValue, nuValue) {
 		t.Errorf("expected uuid %s and nulluuid %s to be equal ", uValue, nuValue)
 	}
 }

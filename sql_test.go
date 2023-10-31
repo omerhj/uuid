@@ -5,6 +5,7 @@
 package uuid
 
 import (
+	"reflect"
 	"strings"
 	"testing"
 )
@@ -104,10 +105,12 @@ func TestScan(t *testing.T) {
 }
 
 func TestValue(t *testing.T) {
-	stringTest := "f47ac10b-58cc-0372-8567-0e02b2c3d479"
-	uuid := Must(Parse(stringTest))
+	binTest := []byte{0xf4, 0x7a, 0xc1, 0x0b, 0x58, 0xcc, 0x03, 0x72, 0x85, 0x67, 0x0e, 0x02, 0xb2, 0xc3, 0xd4, 0x79}
+
+	uuid, _ := FromBytes(binTest)
+
 	val, _ := uuid.Value()
-	if val != stringTest {
+	if !reflect.DeepEqual(val, binTest) {
 		t.Error("Value() did not return expected string")
 	}
 }
