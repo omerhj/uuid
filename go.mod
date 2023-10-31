@@ -1,1 +1,1 @@
-module github.com/omerhj/uuid
+module github.com/google/uuid
